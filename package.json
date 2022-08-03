@@ -1,0 +1,25 @@
+{
+  "name": "nexter",
+  "version": "1.0.0",
+  "description": "landing page for nexter",
+  "main": "index.js",
+  "scripts": {
+    "watch": "sass sass/main.scss css/style.css -w",
+    "devserver": "live-server --browser=chrome",
+    "start": "npm-run-all --parallel devserver watch",
+    "compile": "sass sass/main.scss css/style.comp.css",
+    "concat": "concat -o css/style.concat.css css/icon-fonts.css css/style.comp.css",
+    "prefix": "postcss --use autoprefixer -b 'last 10 versions' css/style.concat.css -o css/style.prefix.css",
+    "compress": "sass css/style.prefix.css css/style.css --style compressed",
+    "build": "npm-run-all compile concat prefix compress"
+  },
+  "author": "Asma",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^10.4.7",
+    "concat": "^1.0.3",
+    "npm-run-all": "^4.1.5",
+    "postcss-cli": "^10.0.0",
+    "sass": "^1.51.0"
+  }
+}
